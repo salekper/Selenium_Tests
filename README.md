@@ -1,6 +1,9 @@
-Test Goal- Enter contact information and submit a form online
+# Selenium Tests 
+Contact Form Submission- BCWSA 
 
-Steps:
+# Test Goal- Enter contact information and submit a form online
+
+# Steps:
 
 Go to https://www.bcwsa.net/
 Click on "help" to go to page https://www.bcwsa.net/help-center/
