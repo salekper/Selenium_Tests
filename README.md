@@ -1,7 +1,8 @@
 # Selenium Tests 
-Contact Form Submission- BCWSA 
+## Contact Form Submission- BCWSA  
 
-# Test Goal- Enter contact information and submit a form online
+
+# Test Goal- Populate contact fields and submit a form online
 
 # Steps:
 
