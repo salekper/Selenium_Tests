@@ -9,6 +9,8 @@ Populate the fileds in "Create Account" form,
 Insert First Name= John
 Insert Last Name= Test
 Phone Number = 4847774456
-Email = Johnisthenewuser@jcpenny.com
-Passoword= JCPenny#Usertest01
+Email = Johnisthenewuser@gmail.com
+Passoword= ThisisaP@asword3
+Verify the "Create Account" button is now active and clickable 
+Take screenshot and timestamp
 Click "Create Account"

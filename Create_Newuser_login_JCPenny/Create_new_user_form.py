@@ -86,7 +86,7 @@ phone_input.send_keys("4847774456")
 email_id_input = driver.find_element(By.ID, "createAccountEmail")
 
     # Enter the email address  
-email_id_input.send_keys("Johnisthenewuser@jcpenny.com")
+email_id_input.send_keys("Johnisthenewuser@gmail.com")
 
 #Locate and input the field by its ID-Password
 password_input = driver.find_element(By.ID, "create-password")
@@ -132,16 +132,18 @@ if is_enabled and (is_red(bg_color) or "btnDanger" in class_attr):
 else:
     print(f"❌ Button check failed.\n - Enabled: {is_enabled}\n - Computed BG: {bg_color}\n - Class: {class_attr}")
 
-time.sleep(5)
-create_account_button= driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
-create_account_button.click()
 
 #5. Take screen shot and timestamp 
+time.sleep(5)
 import time
 timestamp = time.strftime("%Y%m%d-%H%M%S")
 
 create_account_button.screenshot("button_screenshot.png")
 
+#click on the create account button 
+time.sleep(5)
+create_account_button= driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
+create_account_button.click()
 
 time.sleep(5)
 driver.quit()
