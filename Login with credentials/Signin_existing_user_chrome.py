@@ -13,8 +13,8 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 
 # --- Credentials ---
-EMAIL = "shweta@empirecovers.com"
-PASSWORD = "Test123"
+EMAIL = "Johnsmithjs@gmail.com"
+PASSWORD = "Test12"
 
 # --- Set up Chrome ---
 options = uc.ChromeOptions()
