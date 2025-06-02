@@ -1,23 +1,60 @@
-🧪 Selenium Automation Test Suite
-This repository contains a collection of Selenium-based automated test scripts designed to validate and demonstrate common web user interactions across various websites. These tests serve as practical examples or reusable components for automating workflows using Python and Selenium.
+# 👋 Hello, I’m Shweta (salekper)!
 
-✅ Features Covered
-Register a new user – Automates the sign-up process with form validation on e-commerse website.
+I'm a highly motivated and detail-oriented Sr. Quality Assurance Specialist with 10 years of quality assurance experience on E-commerce webstores, Customer relationship management (CRM) software, service management software (Saas). I have 4+ years of QA Automation hands-on experience in building reliable, scalable test automation frameworks. My work focuses on ensuring high-quality software through automated web, mobile, and API testing.
 
-Login with existing credentials – Simulates user login with session verification.
+---
 
-Download a PDF from a website – Navigates to a URL and triggers PDF downloads with proper browser configuration.
+## Projects
 
-Update contact information – Automates filling and submitting a user contact info form on a utility site.
+### 🔹 Selenium Automation Suite
+**Repo:** [Selenium_Tests](https://github.com/salekper/Selenium_Tests)  
+- Automates flows like user registration, login, PDF download, and contact form updates.
+- Built with Python, Selenium WebDriver, and PyTest.
+- Follows Page Object Model (POM) for scalability and reuse.
 
-🛠️ Tech Stack
-Python
+### 🔹 API Automation with Postman & Newman *(optional – add if applicable)*
+**Repo:** [API_Tests](https://github.com/salekper/API_Tests)  
+- Automates REST API testing for login, CRUD operations, and error scenarios.
+- Integrated with Newman CLI for command-line testing and CI support.
 
-Selenium WebDriver
+### 🔹 CI/CD Integration *(optional – add if applicable)*
+**Repo:** [CI_Automation](https://github.com/salekper/CI_Automation)  
+- Demonstrates GitHub Actions workflows to run tests on push/pull requests.
+- Email and Slack notifications on test results.
 
-undetected-chromedriver (for bypassing bot detection)
+---
 
-WebDriverWait & ExpectedConditions for reliable element handling
+## 🧰 Tech Stack
 
-📂 Structure
-Each test is organized into individual scripts or test cases, allowing modular execution and easy scalability.
+- **Languages:** Python, JavaScript
+- **Automation Tools:** Selenium, Playwright, Postman
+- **Frameworks:** PyTest, Robot Framework
+- **CI/CD:** GitHub Actions, Jenkins, Bitbucket 
+- **Version Control:** Git, GitHub
+- **Other:** Performance testing (JMETER), Data-driven Testing (Excel/JSON), HTML Reporting
+
+---
+
+## 📊 Sample Reports
+
+| HTML Report | Screenshot |
+|-------------|------------|
+| *(Add a link to your test report or image)* | *(Add screenshot of test or UI automation)* |
+
+---
+
+## 📈 GitHub Stats
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=salekper&show_icons=true&theme=radical)
+
+---
+
+## 📫 Contact Me
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/shweta-alekper-03736226) 
+- 📧 shwetaalekper@gmail.com
+
+
+
+[![GitHub Streak](https://streak-stats.demolab.com/?user=salekper)](https://git.io/streak-stats)
+
