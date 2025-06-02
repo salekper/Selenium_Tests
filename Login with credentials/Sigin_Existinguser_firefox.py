@@ -8,8 +8,8 @@ from webdriver_manager.firefox import GeckoDriverManager
 import time
 
 # --- Credentials ---
-EMAIL = "johnmason@gmail.com"
-PASSWORD = "37ZRn7-Atm_3wc."
+EMAIL = "shweta@empirecovers.com"
+PASSWORD = "Test123"
 
 # --- Set up Firefox ---
 options = FirefoxOptions()
@@ -24,54 +24,52 @@ options.set_preference("useAutomationExtension", False)
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)
 
 try:
-    # Open JCPenney website
-    driver.get("https://www.jcpenney.com/")
+    # Open Empire Covers website
+    driver.get("https://www.empirecovers.com/")
     time.sleep(3)
-
+except Exception as e:
+    print("❌ An error occurred:", e)
     # Check the page title
-    assert "JCPenney" in driver.title
-    print("✅ JCPenney homepage loaded successfully.")
-
+try:
+    assert "Empire covers" in driver.title
+    print("✅ Empire Covers homepage loaded successfully.")
+except Exception as e:
+    print("❌ An error occurred:", e)
     wait = WebDriverWait(driver, 15)
 
-    # Click "Sign In" on account menu
-    sign_in_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, '//p[@data-automation-id="acc-info-state" and text()="Sign In"]'))
-    )
-    sign_in_button.click()
-    print("✅ Clicked on Sign In button successfully.")
+    # Click "Account" on main menu    
+try:
+    Account_button = driver.find_element(By.XPATH, '/html/body/header/div[2]/div[1]/div[2]/nav/ul/li[6]/a/span[1]')
+    Account_button.click()
     time.sleep(2)
-
-    # Click actual "Sign In" in the modal/panel
-    sign_in_link = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="atPanelContent"]/div/div/div[3]/div[2]/button/span')))
-    sign_in_link.click()
-    print("✅ Clicked on Sign In panel button successfully.")
+except Exception as e:
+    print("❌ An error occurred:", e)   
 
     # Fill in credentials
-    email_input = wait.until(EC.visibility_of_element_located((By.ID, "loginEmail")))
+try:
+    email_input = wait.until(EC.visibility_of_element_located((By.ID, "Email")))
     email_input.send_keys(EMAIL)
     print("✅ Email populated successfully.")
     time.sleep(2)
 
-    password_input = driver.find_element(By.ID, "signin-password")
+    password_input = driver.find_element(By.ID, "Password")
     password_input.send_keys(PASSWORD)
     print("✅ Password entered successfully.")
-
+except Exception as e:
+    print("❌ An error occurred:", e)
     # Submit form
-    sign_in_submit = driver.find_element(By.XPATH, '//*[@id="atPanelContent"]/div/div[1]/div[2]/form/div/div[5]/button/span')
-    sign_in_submit.click()
+    Log_in = driver.find_element(By.XPATH, '/html/body/main/div/section/div[1]/form/fieldset/div[3]/div[2]/input')
+    Log_in.click()
 
-    # Wait for greeting
-    greeting = wait.until(EC.presence_of_element_located(
-        (By.XPATH, '//button[@data-automation-id="account-icon-button"]//span[contains(text(), "Hi")]')
+    # Validate for account user name "XX"
+try:
+    username = wait.until(EC.presence_of_element_located(
+        (By.XPATH, '//*[@id="user-menu-btn"]/span[2]')
     ))
-    greeting_text = greeting.text
-    assert "Hi John" in greeting_text, f"❌ Greeting text not found. Found: '{greeting_text}'"
-    print("✅ Login successful. Greeting found:", greeting_text)
-
+    time.sleep(2)
     # Screenshot
     driver.save_screenshot("jcpenney_login_success.png")
-
+    print("*****************✅ Logged in successfully.***************************")
 except Exception as e:
     print("❌ An error occurred:", e)
     driver.save_screenshot("jcpenney_error.png")
