@@ -6,16 +6,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import time
-
+import undetected_chromedriver as uc
 
 # Set Chrome options (optional)
-options = Options()
+options = uc.ChromeOptions()
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_argument("--start-maximized")
 options.add_argument("--ignore-certificate-errors")
 options.add_argument("--ignore-ssl-errors")
+# options.add_argument("--headless")  # Uncomment this if you want to run without UI
 
-# Correct WebDriver initialization
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+# Start Chrome (match version to your local Chrome install)
+driver = uc.Chrome(version_main=136, options=options)
+
 
 try:
     # Open JCPenney website

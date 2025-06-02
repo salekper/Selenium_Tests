@@ -68,7 +68,7 @@ try:
     ))
     time.sleep(2)
     # Screenshot
-    driver.save_screenshot("jcpenney_login_success.png")
+    driver.save_screenshot("Empire_login_success.png")
     print("*****************✅ Logged in successfully.***************************")
 except Exception as e:
     print("❌ An error occurred:", e)

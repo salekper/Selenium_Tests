@@ -76,16 +76,16 @@ Log_in_button = driver.find_element(By.XPATH, '/html/body/main/div/section/div[1
 
 Log_in_button.click()
 
-# Validate for account user name "SHWETA"
+# Validate for account user name "JOHN"
 try:
     element = driver.find_element(By.CSS_SELECTOR, "span.d-xl-none.d-xga-inline.pl-1")
     element_text = element.text.strip()
 
     # Case-insensitive check
-    if "SHWETA".lower() == element_text.lower():
-        print("✅ Text 'SHWETA' matches the element text (case-insensitive).************************LOG IN SUCCESS***************")
+    if "JOHN".lower() == element_text.lower():
+        print("✅ Text 'JOHN' matches the element text (case-insensitive).************************LOG IN SUCCESS***************")
     else:
-        print("❌ Text 'SHWETA' does NOT match the element text.")
+        print("❌ Text 'JOHN' does NOT match the element text.")
 except NoSuchElementException:
     print("❌ Element not found.")
 except Exception as e:
