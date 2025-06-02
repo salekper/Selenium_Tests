@@ -150,5 +150,11 @@ time.sleep(5)
 create_account_button= driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
 create_account_button.click()
 
+# Wait a bit for the next page or modal to load
+time.sleep(3)
+
+# Take screenshot
+driver.save_screenshot("screenshot_after_create_account.png")
+print("✅ Screenshot saved as screenshot_after_create_account.png")
 time.sleep(5)
 driver.quit()
