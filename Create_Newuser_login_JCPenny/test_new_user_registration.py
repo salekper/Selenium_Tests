@@ -1,3 +1,5 @@
+# updated script to use a new random "email address" for each registration. This resolves the issue reported in https://github.com/salekper/Selenium_Tests/issues/1
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -7,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import undetected_chromedriver as uc
+import random
+import string
 
 # Set Chrome options (optional)
 options = uc.ChromeOptions()
@@ -65,96 +69,49 @@ except Exception as e:
     print("❌ Error:", e)
 time.sleep(2)
 
-first_name_input = wait.until(
-        EC.presence_of_element_located((By.ID, "firstName"))
-    )
+# === Generate random email ===
+def generate_random_email():
+    prefix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+    return f"{prefix}@gmail.com"
 
-    # Enter the name "John"
-first_name_input.send_keys("John")
-print("✅ 'John' entered in First Name field.")
-
-last_name_input = wait.until(
-        EC.presence_of_element_located((By.ID, "lastName"))
-    )
-    #Enter the last name "Test"
-last_name_input.send_keys("Test")
-print("✅ 'Test' entered in Last Name field.")
-
-# Locate the input field by its ID- phone number 
-phone_input = driver.find_element(By.ID, "phone")
-
-    # Enter the phone number 
-phone_input.send_keys("4847774456")
-
-#Locate and input the field by its ID- Email address
-
-email_id_input = driver.find_element(By.ID, "createAccountEmail")
-
-    # Enter the email address  
-email_id_input.send_keys("Johnisthenewuser@gmail.com")
-
-#Locate and input the field by its ID-Password
-password_input = driver.find_element(By.ID, "create-password")
-
-    # Enter the password
-password_input.send_keys("ThisisaP@asword3")
-print("✅ password is entered successfully")
-
-
-#Locate and click on the field by its XPath- Create Account 
-
+# === Step 3: Begin account creation ===
 try:
-    create_account_button = WebDriverWait(driver, 10).until(
-        EC.create_account_button_to_be_clickable((By.XPATH, "/html/body/div[1]/main/div[6]/div/div[2]/div/div/div[3]/div/div/form/div/div[2]/div/div/button/span"))
-    )
     
+
+    wait.until(EC.presence_of_element_located((By.ID, "firstName"))).send_keys("John")
+    wait.until(EC.presence_of_element_located((By.ID, "lastName"))).send_keys("Test")
+    driver.find_element(By.ID, "phone").send_keys("4847774456")
+
+    # Use generated email
+    random_email = generate_random_email()
+    driver.find_element(By.ID, "createAccountEmail").send_keys(random_email)
+    print(f"✅ Using email: {random_email}")
+    driver.find_element(By.ID, "create-password").send_keys("ThisisaP@asword3")
+    print("✅ Form filled.")
+
+    create_btn = driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
+    is_enabled = create_btn.is_enabled()
+    bg_color = driver.execute_script("return window.getComputedStyle(arguments[0]).backgroundColor;", create_btn)
+    class_attr = create_btn.get_attribute("class")
+
+    def is_red(color):
+        return "255, 0, 0" in color
+
+    if is_enabled and (is_red(bg_color) or "btnDanger" in class_attr):
+        print("✅ Button is red and active.")
+    else:
+        print("❌ Button check failed.")
+
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    create_btn.screenshot(f"button_{timestamp}.png")
+
+    create_btn.click()
+    time.sleep(3)
+    driver.save_screenshot(f"post_submit_{timestamp}.png")
+    print("✅ Account created. Screenshot saved.")
+
 except Exception as e:
-    print("Error:", e)
+    print("❌ Test failed:", e)
 
-print("✅ 'Create Account' button is clickable.")
-
-
-# Validate the "Create account" button is now active 
-create_account_button = driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
-
-# 1. Check if it's enabled
-is_enabled = create_account_button.is_enabled()
-
-# 2. Get computed background color via JS
-bg_color = driver.execute_script("""
-    return window.getComputedStyle(arguments[0]).backgroundColor;
-""", create_account_button)
-
-# 3. Check class name
-class_attr = create_account_button.get_attribute("class")
-
-# 4. Validate color + state
-def is_red(color):
-    return "255, 0, 0" in color  # covers rgba and rgb red tones
-
-if is_enabled and (is_red(bg_color) or "btnDanger" in class_attr):
-    print("***************************************✅ Button is red and active.**********************************")
-else:
-    print(f"❌ Button check failed.\n - Enabled: {is_enabled}\n - Computed BG: {bg_color}\n - Class: {class_attr}")
-
-
-#5. Take screen shot and timestamp 
-time.sleep(5)
-import time
-timestamp = time.strftime("%Y%m%d-%H%M%S")
-
-create_account_button.screenshot("button_screenshot.png")
-
-#click on the create account button 
-time.sleep(5)
-create_account_button= driver.find_element(By.CSS_SELECTOR, 'button[data-automation-id="submit_button"]')
-create_account_button.click()
-
-# Wait a bit for the next page or modal to load
-time.sleep(3)
-
-# Take screenshot
-driver.save_screenshot("screenshot_after_create_account.png")
-print("✅ Screenshot saved as screenshot_after_create_account.png")
-time.sleep(5)
+# === Cleanup ===
 driver.quit()
