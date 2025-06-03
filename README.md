@@ -1,6 +1,6 @@
 # 👋 Hello, I’m Shweta (salekper)!
 
-I'm a highly motivated and detail-oriented Sr. Quality Assurance Specialist with 10 years of quality assurance experience on E-commerce webstores, Customer relationship management (CRM) software, service management software (Saas). I have 4+ years of QA Automation hands-on experience in building reliable, scalable test automation frameworks. My work focuses on ensuring high-quality software through automated web, mobile, and API testing.
+I'm highly motivated and detail-oriented Sr. Quality Assurance Specialist with 10 years of quality assurance experience, I have worked on E-commerce webstores, Customer relationship management (CRM) software and service management software (Saas). My most recent experience includes 4+ years of hands-on QA Automation in building reliable, scalable test automation frameworks. My work focuses on ensuring high-quality software through automated web, mobile, and API testing.
 
 ---
 
