@@ -23,13 +23,7 @@ I'm highly motivated and detail-oriented Sr. Quality Assurance Specialist with 1
 - **Version Control:** Git, GitHub
 - **Other:** Performance testing (JMETER), Data-driven Testing (Excel/JSON), HTML Reporting
 
----
 
-## 📊 Sample Reports
-
-| HTML Report | Screenshot |
-|-------------|------------|
-| *(Add a link to your test report or image)* | *(Add screenshot of test or UI automation)* |
 
 ---
 
