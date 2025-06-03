@@ -12,16 +12,6 @@ I'm highly motivated and detail-oriented Sr. Quality Assurance Specialist with 1
 - Built with Python, Selenium WebDriver, and PyTest.
 - Follows Page Object Model (POM) for scalability and reuse.
 
-### 🔹 API Automation with Postman & Newman *(optional – add if applicable)*
-**Repo:** [API_Tests](https://github.com/salekper/API_Tests)  
-- Automates REST API testing for login, CRUD operations, and error scenarios.
-- Integrated with Newman CLI for command-line testing and CI support.
-
-### 🔹 CI/CD Integration *(optional – add if applicable)*
-**Repo:** [CI_Automation](https://github.com/salekper/CI_Automation)  
-- Demonstrates GitHub Actions workflows to run tests on push/pull requests.
-- Email and Slack notifications on test results.
-
 ---
 
 ## 🧰 Tech Stack
